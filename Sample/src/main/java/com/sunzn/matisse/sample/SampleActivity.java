@@ -38,8 +38,6 @@ import com.sunzn.matisse.library.filter.Filter;
 import com.sunzn.matisse.library.internal.entity.CaptureStrategy;
 import com.sunzn.matisse.library.listener.OnCheckedListener;
 import com.sunzn.matisse.library.listener.OnSelectedListener;
-import com.sunzn.matisse.sample.Glide4Engine;
-import com.sunzn.matisse.sample.R;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.List;
@@ -82,7 +80,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                 case R.id.zhihu:
                                     Matisse.from(SampleActivity.this)
                                             .choose(MimeType.ofAll(), false)
-                                            .countable(false)
+                                            .countable(true)
                                             .capture(true)
                                             .captureStrategy(new CaptureStrategy(true, "com.zhihu.matisse.sample.fileprovider", "test"))
                                             .maxSelectable(9)
@@ -167,14 +165,14 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
             notifyDataSetChanged();
         }
 
+        @NonNull
         @Override
-        public UriViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new UriViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(R.layout.uri_item, parent, false));
+        public UriViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new UriViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.uri_item, parent, false));
         }
 
         @Override
-        public void onBindViewHolder(UriViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull UriViewHolder holder, int position) {
             holder.mUri.setText(mUris.get(position).toString());
             holder.mPath.setText(mPaths.get(position));
 
@@ -194,8 +192,8 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
 
             UriViewHolder(View contentView) {
                 super(contentView);
-                mUri = (TextView) contentView.findViewById(R.id.uri);
-                mPath = (TextView) contentView.findViewById(R.id.path);
+                mUri = contentView.findViewById(R.id.uri);
+                mPath = contentView.findViewById(R.id.path);
             }
         }
     }

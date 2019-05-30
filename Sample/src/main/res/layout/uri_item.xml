@@ -49,4 +49,5 @@
         android:textSize="16sp"
         tools:text="/storage/emulated/0/Pictures/JPEG_20170516_12345.jpg"
         tools:textColor="@android:color/black" />
+
 </LinearLayout>
