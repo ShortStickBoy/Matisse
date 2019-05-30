@@ -18,6 +18,7 @@ package com.sunzn.matisse.library.filter;
 import android.content.Context;
 
 import com.sunzn.matisse.library.MimeType;
+import com.sunzn.matisse.library.SelectionCreator;
 import com.sunzn.matisse.library.internal.entity.IncapableCause;
 import com.sunzn.matisse.library.internal.entity.Item;
 
