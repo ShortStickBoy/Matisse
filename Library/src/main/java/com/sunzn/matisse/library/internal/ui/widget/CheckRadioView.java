@@ -27,12 +27,8 @@ public class CheckRadioView extends AppCompatImageView {
     }
 
     private void init() {
-        mSelectedColor = ResourcesCompat.getColor(
-                getResources(), R.color.zhihu_item_checkCircle_backgroundColor,
-                getContext().getTheme());
-        mUnSelectUdColor = ResourcesCompat.getColor(
-                getResources(), R.color.zhihu_check_original_radio_disable,
-                getContext().getTheme());
+        mSelectedColor = ResourcesCompat.getColor(getResources(), R.color.zhihu_item_checkCircle_backgroundColor, getContext().getTheme());
+        mUnSelectUdColor = ResourcesCompat.getColor(getResources(), R.color.zhihu_check_original_radio_disable, getContext().getTheme());
         setChecked(false);
     }
 
@@ -55,4 +51,5 @@ public class CheckRadioView extends AppCompatImageView {
         }
         mDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
     }
+
 }

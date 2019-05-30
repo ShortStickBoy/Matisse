@@ -109,8 +109,7 @@ public final class PhotoMetadataUtils {
         if (SCHEME_CONTENT.equals(uri.getScheme())) {
             Cursor cursor = null;
             try {
-                cursor = resolver.query(uri, new String[]{MediaStore.Images.ImageColumns.DATA},
-                        null, null, null);
+                cursor = resolver.query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
                 if (cursor == null || !cursor.moveToFirst()) {
                     return null;
                 }
@@ -163,8 +162,7 @@ public final class PhotoMetadataUtils {
             return false;
         }
         int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1);
-        return orientation == ExifInterface.ORIENTATION_ROTATE_90
-                || orientation == ExifInterface.ORIENTATION_ROTATE_270;
+        return orientation == ExifInterface.ORIENTATION_ROTATE_90 || orientation == ExifInterface.ORIENTATION_ROTATE_270;
     }
 
     public static float getSizeInMB(long sizeInBytes) {

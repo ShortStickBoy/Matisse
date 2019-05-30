@@ -68,4 +68,5 @@ class CursorFilter extends Filter {
             mClient.changeCursor((Cursor) results.values);
         }
     }
+
 }

@@ -98,17 +98,17 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
             mSelectedCollection.onCreate(savedInstanceState);
             mOriginalEnable = savedInstanceState.getBoolean(CHECK_STATE);
         }
-        mButtonBack = (TextView) findViewById(R.id.button_back);
-        mButtonApply = (TextView) findViewById(R.id.button_apply);
-        mSize = (TextView) findViewById(R.id.size);
+        mButtonBack = findViewById(R.id.button_back);
+        mButtonApply = findViewById(R.id.button_apply);
+        mSize = findViewById(R.id.size);
         mButtonBack.setOnClickListener(this);
         mButtonApply.setOnClickListener(this);
 
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = findViewById(R.id.pager);
         mPager.addOnPageChangeListener(this);
         mAdapter = new PreviewPagerAdapter(getSupportFragmentManager(), null);
         mPager.setAdapter(mAdapter);
-        mCheckView = (CheckView) findViewById(R.id.check_view);
+        mCheckView = findViewById(R.id.check_view);
         mCheckView.setCountable(mSpec.countable);
         mBottomToolbar = findViewById(R.id.bottom_toolbar);
         mTopToolbar = findViewById(R.id.top_toolbar);
@@ -138,8 +138,7 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
                 updateApplyButton();
 
                 if (mSpec.onSelectedListener != null) {
-                    mSpec.onSelectedListener.onSelected(
-                            mSelectedCollection.asListOfUri(), mSelectedCollection.asListOfString());
+                    mSpec.onSelectedListener.onSelected(mSelectedCollection.asListOfUri(), mSelectedCollection.asListOfString());
                 }
             }
         });
@@ -163,7 +162,6 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
                 if (!mOriginalEnable) {
                     mOriginal.setColor(Color.WHITE);
                 }
-
 
                 if (mSpec.onCheckedListener != null) {
                     mSpec.onCheckedListener.onCheck(mOriginalEnable);
@@ -326,7 +324,7 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
     protected void updateSize(Item item) {
         if (item.isGif()) {
             mSize.setVisibility(View.VISIBLE);
-            mSize.setText(PhotoMetadataUtils.getSizeInMB(item.size) + "M");
+            mSize.setText(String.format("%sM", PhotoMetadataUtils.getSizeInMB(item.size)));
         } else {
             mSize.setVisibility(View.GONE);
         }

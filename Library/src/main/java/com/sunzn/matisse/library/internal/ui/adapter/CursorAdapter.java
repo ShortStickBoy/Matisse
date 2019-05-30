@@ -51,8 +51,7 @@ import android.widget.Filterable;
  * Copyright © 2009-2014 LiGux.com.
  *
  */
-public abstract class CursorAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>  implements Filterable,
-        CursorFilter.CursorFilterClient {
+public abstract class CursorAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>  implements Filterable, CursorFilter.CursorFilterClient {
 
     /**
      * Call when bind view with the cursor
