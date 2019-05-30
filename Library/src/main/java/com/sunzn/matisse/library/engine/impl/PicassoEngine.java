@@ -26,7 +26,6 @@ import com.sunzn.matisse.library.engine.ImageEngine;
 /**
  * {@link ImageEngine} implementation using Picasso.
  */
-
 public class PicassoEngine implements ImageEngine {
 
     @Override
@@ -38,15 +37,13 @@ public class PicassoEngine implements ImageEngine {
     }
 
     @Override
-    public void loadGifThumbnail(Context context, int resize, Drawable placeholder, ImageView imageView,
-                                 Uri uri) {
+    public void loadGifThumbnail(Context context, int resize, Drawable placeholder, ImageView imageView, Uri uri) {
         loadThumbnail(context, resize, placeholder, imageView, uri);
     }
 
     @Override
     public void loadImage(Context context, int resizeX, int resizeY, ImageView imageView, Uri uri) {
-        Picasso.with(context).load(uri).resize(resizeX, resizeY).priority(Picasso.Priority.HIGH)
-                .centerInside().into(imageView);
+        Picasso.with(context).load(uri).resize(resizeX, resizeY).priority(Picasso.Priority.HIGH).centerInside().into(imageView);
     }
 
     @Override
