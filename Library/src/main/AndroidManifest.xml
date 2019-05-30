@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sunzn.matisse.library">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity android:name="com.sunzn.matisse.library.ui.MatisseActivity" />
+        <activity android:name="com.sunzn.matisse.library.internal.ui.AlbumPreviewActivity" />
+        <activity android:name="com.sunzn.matisse.library.internal.ui.SelectedPreviewActivity" />
+    </application>
+
+</manifest>
