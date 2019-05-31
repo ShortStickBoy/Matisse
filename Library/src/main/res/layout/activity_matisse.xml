@@ -135,10 +135,17 @@
 
         </FrameLayout>
 
+        <com.sunzn.matisse.library.internal.ui.widget.ShadowView
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/albums"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="150dp"
             android:background="@android:color/white"
             android:overScrollMode="never"
             android:scrollbars="none"
