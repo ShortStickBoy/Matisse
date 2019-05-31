@@ -265,17 +265,17 @@ public class MatisseActivity extends AppCompatActivity implements
             mButtonPreview.setEnabled(false);
             mButtonApply.setEnabled(false);
             mButtonApply.setText(getString(R.string.button_finish_default));
-            mButtonApply.setBackgroundResource(R.drawable.ic_button_finish_off);
+            mButtonApply.setBackgroundResource(R.drawable.shape_button_apply_off);
         } else if (selectedCount == 1 && mSpec.singleSelectionModeEnabled()) {
             mButtonPreview.setEnabled(true);
             mButtonApply.setText(R.string.button_finish_default);
             mButtonApply.setEnabled(true);
-            mButtonApply.setBackgroundResource(R.drawable.ic_button_finish_off);
+            mButtonApply.setBackgroundResource(R.drawable.shape_button_apply_off);
         } else {
             mButtonPreview.setEnabled(true);
             mButtonApply.setEnabled(true);
             mButtonApply.setText(getString(R.string.button_finish, selectedCount, mSpec.maxSelectable));
-            mButtonApply.setBackgroundResource(R.drawable.ic_button_finish_on);
+            mButtonApply.setBackgroundResource(R.drawable.shape_button_apply_on);
         }
 
         if (mSpec.originalable) {
