@@ -53,6 +53,7 @@ import com.sunzn.matisse.library.internal.ui.adapter.AlbumsCursorAdapter;
 import com.sunzn.matisse.library.internal.ui.widget.AlbumsSpinner;
 import com.sunzn.matisse.library.internal.ui.widget.CheckRadioView;
 import com.sunzn.matisse.library.internal.ui.widget.IncapableDialog;
+import com.sunzn.matisse.library.internal.ui.widget.ShadowView;
 import com.sunzn.matisse.library.internal.utils.MediaStoreCompat;
 import com.sunzn.matisse.library.internal.utils.PathUtils;
 import com.sunzn.matisse.library.internal.utils.PhotoMetadataUtils;
@@ -67,7 +68,8 @@ public class MatisseActivity extends AppCompatActivity implements
         AlbumCollection.AlbumCallbacks, AdapterView.OnItemSelectedListener,
         MediaSelectionFragment.SelectionProvider, View.OnClickListener,
         AlbumMediaAdapter.CheckStateListener, AlbumMediaAdapter.OnMediaClickListener,
-        AlbumMediaAdapter.OnPhotoCapture, AlbumsCursorAdapter.OnItemSelectedListener {
+        AlbumMediaAdapter.OnPhotoCapture, AlbumsCursorAdapter.OnItemSelectedListener,
+        ShadowView.TouchListener {
 
     public static final String EXTRA_RESULT_SELECTION = "extra_result_selection";
     public static final String EXTRA_RESULT_SELECTION_PATH = "extra_result_selection_path";
@@ -88,6 +90,7 @@ public class MatisseActivity extends AppCompatActivity implements
     private TextView mButtonApply;
     private View mContainer;
     private View mEmptyView;
+    private ShadowView mShadowView;
     private RecyclerView mAlbumsView;
 
     private LinearLayout mOriginalLayout;
@@ -143,7 +146,9 @@ public class MatisseActivity extends AppCompatActivity implements
         mButtonApply.setOnClickListener(this);
         mContainer = findViewById(R.id.container);
         mEmptyView = findViewById(R.id.empty_view);
+        mShadowView = findViewById(R.id.shadow);
         mAlbumsView = findViewById(R.id.albums);
+        mShadowView.setOnTouchListener(this);
 
         mOriginalLayout = findViewById(R.id.originalLayout);
         mOriginal = findViewById(R.id.original);
@@ -355,9 +360,11 @@ public class MatisseActivity extends AppCompatActivity implements
                 mAlbumsView.setAdapter(mAlbumsCursorAdapter);
                 mAlbumsView.setVisibility(View.VISIBLE);
                 mAlbumsView.startAnimation(mSlideDown);
+                mShadowView.setVisibility(View.VISIBLE);
             } else {
                 mAlbumsView.setVisibility(View.GONE);
                 mAlbumsView.startAnimation(mSlideRise);
+                mShadowView.setVisibility(View.GONE);
             }
         }
     }
@@ -374,6 +381,7 @@ public class MatisseActivity extends AppCompatActivity implements
         mButtonAlbum.setText(name);
         mAlbumsView.setVisibility(View.GONE);
         mAlbumsView.startAnimation(mSlideRise);
+        mShadowView.setVisibility(View.GONE);
     }
 
     @Override
@@ -464,6 +472,13 @@ public class MatisseActivity extends AppCompatActivity implements
         if (mMediaStoreCompat != null) {
             mMediaStoreCompat.dispatchCaptureIntent(this, REQUEST_CODE_CAPTURE);
         }
+    }
+
+    @Override
+    public void onTouch() {
+        mAlbumsView.setVisibility(View.GONE);
+        mAlbumsView.startAnimation(mSlideRise);
+        mShadowView.setVisibility(View.GONE);
     }
 
 }
