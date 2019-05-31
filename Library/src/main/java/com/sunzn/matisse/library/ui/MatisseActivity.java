@@ -114,6 +114,8 @@ public class MatisseActivity extends AppCompatActivity implements
         }
         setContentView(R.layout.activity_matisse);
 
+        onContentViewSet();
+
         if (mSpec.needOrientationRestriction()) {
             setRequestedOrientation(mSpec.orientation);
         }
@@ -181,6 +183,8 @@ public class MatisseActivity extends AppCompatActivity implements
         mSlideDown = AnimationUtils.loadAnimation(this, R.anim.anim_slide_down);
         mSlideRise = AnimationUtils.loadAnimation(this, R.anim.anim_slide_uper);
     }
+
+    public void onContentViewSet(){}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
