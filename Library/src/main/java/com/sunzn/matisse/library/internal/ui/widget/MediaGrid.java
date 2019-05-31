@@ -22,6 +22,7 @@ import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ import com.sunzn.matisse.library.internal.entity.SelectionSpec;
 public class MediaGrid extends SquareFrameLayout implements View.OnClickListener {
 
     private ImageView mThumbnail;
+    private FrameLayout mCheckFrame;
     private CheckView mCheckView;
     private ImageView mGifTag;
     private TextView mVideoDuration;
@@ -54,6 +56,7 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
         LayoutInflater.from(context).inflate(R.layout.media_grid_content, this, true);
 
         mThumbnail = findViewById(R.id.media_thumbnail);
+        mCheckFrame = findViewById(R.id.check_frame);
         mCheckView = findViewById(R.id.check_view);
         mGifTag = findViewById(R.id.gif);
         mVideoDuration = findViewById(R.id.video_duration);
@@ -83,6 +86,7 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
         initCheckView();
         setImage();
         setVideoDuration();
+        setCheckFrame(false);
     }
 
     public Item getMedia() {
@@ -107,6 +111,10 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
 
     public void setChecked(boolean checked) {
         mCheckView.setChecked(checked);
+    }
+
+    public void setCheckFrame(boolean checked) {
+        mCheckFrame.setVisibility(checked ? VISIBLE : GONE);
     }
 
     private void setImage() {
