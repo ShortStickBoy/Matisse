@@ -31,7 +31,8 @@
             android:gravity="center"
             android:text="@string/album_name_all"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
 
         <TextView
             android:id="@+id/button_apply"
