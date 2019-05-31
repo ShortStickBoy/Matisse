@@ -129,13 +129,16 @@ public class AlbumMediaAdapter extends RecyclerViewCursorAdapter<RecyclerView.Vi
             int checkedNum = mSelectedCollection.checkedNumOf(item);
             if (checkedNum > 0) {
                 mediaGrid.setCheckEnabled(true);
+                mediaGrid.setCheckFrame(true);
                 mediaGrid.setCheckedNum(checkedNum);
             } else {
                 if (mSelectedCollection.maxSelectableReached()) {
                     mediaGrid.setCheckEnabled(false);
+                    mediaGrid.setCheckFrame(false);
                     mediaGrid.setCheckedNum(CheckView.UNCHECKED);
                 } else {
                     mediaGrid.setCheckEnabled(true);
+                    mediaGrid.setCheckFrame(false);
                     mediaGrid.setCheckedNum(checkedNum);
                 }
             }
@@ -143,13 +146,16 @@ public class AlbumMediaAdapter extends RecyclerViewCursorAdapter<RecyclerView.Vi
             boolean selected = mSelectedCollection.isSelected(item);
             if (selected) {
                 mediaGrid.setCheckEnabled(true);
+                mediaGrid.setCheckFrame(true);
                 mediaGrid.setChecked(true);
             } else {
                 if (mSelectedCollection.maxSelectableReached()) {
                     mediaGrid.setCheckEnabled(false);
+                    mediaGrid.setCheckFrame(false);
                     mediaGrid.setChecked(false);
                 } else {
                     mediaGrid.setCheckEnabled(true);
+                    mediaGrid.setCheckFrame(false);
                     mediaGrid.setChecked(false);
                 }
             }
