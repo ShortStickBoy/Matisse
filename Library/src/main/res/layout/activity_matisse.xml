@@ -41,8 +41,8 @@
     <RelativeLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@android:color/white">
 
         <ImageView
             android:id="@+id/button_back"
@@ -66,15 +66,18 @@
 
         <TextView
             android:id="@+id/button_apply"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/ic_button_finish_on"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_button_apply_on"
             android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="完成"
             android:textColor="@android:color/white"
             android:textSize="12sp"
-            android:layout_marginEnd="15dp"
             tools:ignore="ContentDescription" />
 
     </RelativeLayout>
