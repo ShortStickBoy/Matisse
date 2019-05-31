@@ -344,6 +344,13 @@ public final class SelectionCreator {
         return this;
     }
 
+    private Class<?> mTarget;
+
+    public SelectionCreator target(Class<?> cls) {
+        mTarget = cls;
+        return this;
+    }
+
     /**
      * Start to select media and wait for result.
      *
@@ -355,7 +362,14 @@ public final class SelectionCreator {
             return;
         }
 
-        Intent intent = new Intent(activity, MatisseActivity.class);
+        Intent intent;
+
+        if(mTarget == null){
+
+            intent = new Intent(activity, MatisseActivity.class);
+        } else {
+            intent = new Intent(activity, mTarget);
+        }
 
         Fragment fragment = mMatisse.getFragment();
         if (fragment != null) {
