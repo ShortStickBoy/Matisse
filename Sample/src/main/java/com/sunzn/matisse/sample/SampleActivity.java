@@ -110,6 +110,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                                     Log.e("isChecked", "onCheck: isChecked=" + isChecked);
                                                 }
                                             })
+                                            .target(TargetActivity.class)
                                             .forResult(REQUEST_CODE_CHOOSE);
                                     break;
                                 case R.id.dracula:
