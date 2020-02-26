@@ -18,9 +18,10 @@ package com.sunzn.matisse.library;
 
 import android.content.ContentResolver;
 import android.net.Uri;
-import androidx.collection.ArraySet;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+
+import androidx.collection.ArraySet;
 
 import com.sunzn.matisse.library.internal.utils.PhotoMetadataUtils;
 
@@ -108,6 +109,14 @@ public enum MimeType {
 
     public static Set<MimeType> ofImage() {
         return EnumSet.of(JPEG, PNG, GIF, BMP, WEBP);
+    }
+
+    public static Set<MimeType> ofImage(boolean onlyGif) {
+        return EnumSet.of(GIF);
+    }
+
+    public static Set<MimeType> ofGif() {
+        return ofImage(true);
     }
 
     public static Set<MimeType> ofVideo() {

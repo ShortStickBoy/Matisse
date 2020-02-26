@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
 
     defaultConfig {
         applicationId "com.sunzn.matisse.sample"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -35,11 +35,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':Library')
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.github.ShortStickBoy:Tinker:1.1.6'
 }

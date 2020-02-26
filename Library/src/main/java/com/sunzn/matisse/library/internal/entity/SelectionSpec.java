@@ -17,6 +17,7 @@
 package com.sunzn.matisse.library.internal.entity;
 
 import android.content.pm.ActivityInfo;
+
 import androidx.annotation.StyleRes;
 
 import com.sunzn.matisse.library.MimeType;
@@ -55,6 +56,7 @@ public final class SelectionSpec {
     public boolean autoHideToobar;
     public int originalMaxSize;
     public OnCheckedListener onCheckedListener;
+    public boolean showPreview;
 
     private SelectionSpec() {
     }
@@ -90,6 +92,7 @@ public final class SelectionSpec {
         originalable = false;
         autoHideToobar = false;
         originalMaxSize = Integer.MAX_VALUE;
+        showPreview = true;
     }
 
     public boolean singleSelectionModeEnabled() {
@@ -108,8 +111,11 @@ public final class SelectionSpec {
         return showSingleMediaType && MimeType.ofVideo().containsAll(mimeTypeSet);
     }
 
+    public boolean onlyShowGif() {
+        return showSingleMediaType && MimeType.ofGif().equals(mimeTypeSet);
+    }
+
     private static final class InstanceHolder {
         private static final SelectionSpec INSTANCE = new SelectionSpec();
     }
-
 }

@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +54,8 @@ public class AlbumsCursorAdapter extends CursorAdapter<AlbumsCursorAdapter.ViewH
         holder.getCount().setText(String.valueOf(album.getCount()));
 
         // do not need to load animated Gif
-        SelectionSpec.getInstance().imageEngine.loadThumbnail(mContext, mContext.getResources().getDimensionPixelSize(R.dimen.media_grid_size), mPlaceholder, holder.getCover(), Uri.fromFile(new File(album.getCoverPath())));
+//        SelectionSpec.getInstance().imageEngine.loadThumbnail(mContext, mContext.getResources().getDimensionPixelSize(R.dimen.media_grid_size), mPlaceholder, holder.getCover(), Uri.fromFile(new File(album.getCoverPath())));
+        SelectionSpec.getInstance().imageEngine.loadThumbnail(mContext, mContext.getResources().getDimensionPixelSize(R.dimen.media_grid_size), mPlaceholder, holder.getCover(), album.getCoverUri());
     }
 
     @Override

@@ -20,14 +20,11 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -36,6 +33,12 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sunzn.matisse.library.R;
 import com.sunzn.matisse.library.internal.entity.Album;
@@ -57,6 +60,7 @@ import com.sunzn.matisse.library.internal.ui.widget.ShadowView;
 import com.sunzn.matisse.library.internal.utils.MediaStoreCompat;
 import com.sunzn.matisse.library.internal.utils.PathUtils;
 import com.sunzn.matisse.library.internal.utils.PhotoMetadataUtils;
+import com.sunzn.matisse.library.internal.utils.SingleMediaScanner;
 
 import java.util.ArrayList;
 
@@ -263,6 +267,15 @@ public class MatisseActivity extends AppCompatActivity implements
             result.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION, selected);
             result.putStringArrayListExtra(EXTRA_RESULT_SELECTION_PATH, selectedPath);
             setResult(RESULT_OK, result);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+                MatisseActivity.this.revokeUriPermission(contentUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            new SingleMediaScanner(this.getApplicationContext(), path, new SingleMediaScanner.ScanListener() {
+                @Override
+                public void onScanFinish() {
+                    Log.i("SingleMediaScanner", "scan finish!");
+                }
+            });
             finish();
         }
     }
