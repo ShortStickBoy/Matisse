@@ -17,7 +17,7 @@ package com.sunzn.matisse.library.internal.ui;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.sunzn.matisse.library.internal.entity.Album;
 import com.sunzn.matisse.library.internal.entity.Item;

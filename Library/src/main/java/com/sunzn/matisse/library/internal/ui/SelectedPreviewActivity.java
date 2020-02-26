@@ -16,7 +16,7 @@
 package com.sunzn.matisse.library.internal.ui;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.sunzn.matisse.library.internal.entity.Item;
 import com.sunzn.matisse.library.internal.entity.SelectionSpec;
