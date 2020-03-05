@@ -78,7 +78,7 @@ public class MediaStoreCompat {
         if (captureIntent.resolveActivity(context.getPackageManager()) != null) {
             File photoFile = null;
 
-            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 mCurrentPhotoUri = createImageUri();
                 mCurrentPhotoPath = "path";
             } else {
